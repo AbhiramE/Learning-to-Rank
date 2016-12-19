@@ -99,13 +99,16 @@ public class Evaluation extends AbstractQLSearcher{
                 for (int d=0;d<1000 && d< docIdsMap.get(fields.get(4)).size();d++) {
 
                     String data="";
-                    int target=1;
-                    data=data.concat(String.valueOf(target)+" ");
-                    data=data.concat("qid:"+qid+" ");
 
                     //Feature 1-5
                     for (int i = 1; i < 6; i++) {
+
                         String field_search = fields.get((i-1)%5);
+
+                        int target=qrels.get(qid).contains(searchResultsDIR.get(fields.get(4)).get(d).getDocno())?1:0;
+                        data=data.concat(String.valueOf(target)+" ");
+                        data=data.concat("qid:"+qid+" ");
+
                         double score = 0;
                         if (MultiFields.getTerms(searcher.getIndex(), field_search) != null)
                             score=QueryTerm.getQueryTermNumber(terms);
@@ -338,9 +341,6 @@ public class Evaluation extends AbstractQLSearcher{
                         }
                         data=data.concat(i+":"+score+" ");
                     }
-
-                    //Feature 111-115
-                    //ToDo
 
                     //Feature 116-120
                     for (int i = 116; i < 121; i++) {

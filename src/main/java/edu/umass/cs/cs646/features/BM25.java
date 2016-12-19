@@ -14,7 +14,7 @@ import java.util.List;
 
 public final class BM25{
 
-    public static double k1;
+    public static double k1=1.2;
 
     private static double getWeight(IndexReader index, PostingsEnum posting, String field, String term)
             throws IOException {
