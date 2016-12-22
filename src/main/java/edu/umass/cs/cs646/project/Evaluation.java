@@ -32,10 +32,10 @@ public class Evaluation extends AbstractQLSearcher{
         String pathIndex = "/home/abhis3798/codebase/646/Project/index_robust04";
         Analyzer analyzer = LuceneUtils.getAnalyzer(LuceneUtils.Stemming.Krovetz);
 
-        String pathQueries = "/home/abhis3798/codebase/646/Project/queries_robust04_train";
+        String pathQueries = "/home/abhis3798/codebase/646/Project/queries_robust04_validate";
         String pathQrels = "/home/abhis3798/codebase/646/Project/qrels_robust04";
         String pathStopwords = "/home/abhis3798/codebase/646/Project/stopwords_inquery";
-        String outputPath = "/home/abhis3798/codebase/646/Project/robust04_data_train";
+        String outputPath = "/home/abhis3798/codebase/646/Project/robust04_data_validate";
 
         String field_docno = "docno";
 
@@ -105,7 +105,10 @@ public class Evaluation extends AbstractQLSearcher{
 
                         String field_search = fields.get((i-1)%5);
 
-                        int target=qrels.get(qid).contains(searchResultsDIR.get(fields.get(4)).get(d).getDocno())?1:0;
+                        int target=0;
+                        if(searchResultsDIR.get(fields.get(4)).get(d).getDocno()!=null)
+                            target=qrels.get(qid).contains(searchResultsDIR.get(fields.get(4)).get(d).getDocno())?1:0;
+
                         data=data.concat(String.valueOf(target)+" ");
                         data=data.concat("qid:"+qid+" ");
 

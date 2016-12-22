@@ -1,0 +1,16 @@
+<component name="libraryTable">
+  <library name="RankLib">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/../RankLib.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$PROJECT_DIR$/../RankLib.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../RankLib.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../RankLib.jar!/ciir" />
+      <root url="jar://$PROJECT_DIR$/../RankLib.jar!/ciir/umass/edu/eval" />
+      <root url="jar://$PROJECT_DIR$/../RankLib.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../RankLib.jar!/" />
+    </SOURCES>
+  </library>
+</component>
